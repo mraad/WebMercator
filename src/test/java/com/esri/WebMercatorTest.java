@@ -32,7 +32,7 @@ public class WebMercatorTest
      */
     public void testWebMercator()
     {
-        assertEquals(12.34, WebMercator.yToLatitude(WebMercator.latitudeToY(12.34)), 0.001);
-        assertEquals(12.34, WebMercator.xToLongitude(WebMercator.longitudeToX(12.34)), 0.001);
+        assertEquals(12.34, WebMercator.yToLatitude(WebMercator.latitudeToY(12.34)), 0.000001);
+        assertEquals(21.34, WebMercator.xToLongitude(WebMercator.longitudeToX(21.34)), 0.000001);
     }
 }
