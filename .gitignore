@@ -1,11 +1,4 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
 *.iml
-*.ipr
-*.iws
 .idea/
 target/
+project/target/
