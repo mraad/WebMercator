@@ -2,7 +2,7 @@ organization := "com.esri"
 
 name := "webmercator"
 
-version := "1.1"
+version := "1.2"
 
 isSnapshot := true
 

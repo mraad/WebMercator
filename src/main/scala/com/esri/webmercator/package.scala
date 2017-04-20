@@ -12,28 +12,28 @@ package object webmercator {
     /**
       * @return the horizontal mercator value in meters.
       */
-    implicit def toMercatorX() = {
+    @inline implicit def toMercatorX() = {
       WebMercator.longitudeToX(d)
     }
 
     /**
       * @return the vertical mercator value in meters.
       */
-    implicit def toMercatorY() = {
+    @inline implicit def toMercatorY() = {
       WebMercator.latitudeToY(d)
     }
 
     /**
       * @return the longitude value from mercator x.
       */
-    implicit def toLongitude() = {
+    @inline implicit def toLongitude() = {
       WebMercator.xToLongitude(d)
     }
 
     /**
       * @return the latitude value from mercator y.
       */
-    implicit def toLatitude() = {
+    @inline implicit def toLatitude() = {
       WebMercator.yToLatitude(d)
     }
   }
