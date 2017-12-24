@@ -2,13 +2,13 @@ organization := "com.esri"
 
 name := "webmercator"
 
-version := "1.2"
+version := "1.3"
 
 isSnapshot := true
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.10.6", "2.11.7")
+crossScalaVersions := Seq("2.10.6", "2.11.8")
 
 // resolvers += "Local Maven Repository" at "file:///" + Path.userHome + "/.m2/repository"
 resolvers += Resolver.mavenLocal
