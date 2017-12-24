@@ -5,6 +5,8 @@ package com.esri;
  */
 public final class WebMercator
 {
+    public static final double ORIG_X = -20000000.0;
+    public static final double ORIG_Y = -20000000.0;
     public static final double DEGREES_PER_RADIANS = 180.0 / Math.PI;
     public static final double RADIANS_PER_DEGREES = Math.PI / 180.0;
     public static final double PI_OVER_2 = Math.PI / 2.0;
