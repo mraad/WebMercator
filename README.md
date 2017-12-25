@@ -22,5 +22,5 @@ val lat2 = mercatorY toLatitude
 [SBT](http://www.scala-sbt.org/) is the preferred way to build this project.
 
 ```
-sbt clean +publishM2 +publish-local
+sbt clean +publishM2 +publishLocal
 ```
