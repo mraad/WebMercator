@@ -4,7 +4,7 @@ Simple java class to convert between geo and web mercator coordinates.
 
 Update Apr 2017: Added Scala Double implicits to enable the conversion to/from WebMercator values. For example:
 
-```
+```scala
 import com.esri.webmercator._
 
 val lon1 = -127.2
