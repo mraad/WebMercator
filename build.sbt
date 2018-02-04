@@ -10,7 +10,6 @@ publishMavenStyle := true
 
 crossScalaVersions := Seq("2.10.6", "2.11.8")
 
-// resolvers += "Local Maven Repository" at "file:///" + Path.userHome + "/.m2/repository"
 resolvers += Resolver.mavenLocal
 
 libraryDependencies += "junit" % "junit" % "4.12" % "test"
