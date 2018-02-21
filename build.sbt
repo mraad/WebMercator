@@ -2,7 +2,7 @@ organization := "com.esri"
 
 name := "webmercator"
 
-version := "1.3"
+version := "1.4"
 
 isSnapshot := true
 
@@ -13,6 +13,8 @@ crossScalaVersions := Seq("2.10.6", "2.11.8")
 resolvers += Resolver.mavenLocal
 
 libraryDependencies += "junit" % "junit" % "4.12" % "test"
+
+assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
 
 pomExtra :=
   <url>https://github.com/mraad/WebMercator</url>
