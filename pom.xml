@@ -135,6 +135,14 @@
                 <scala.version>${scala.compact}.8</scala.version>
             </properties>
         </profile>
+        <profile>
+            <id>scala-2.12</id>
+            <properties>
+                <java.version>1.8</java.version>
+                <scala.compact>2.12</scala.compact>
+                <scala.version>${scala.compact}.8</scala.version>
+            </properties>
+        </profile>
     </profiles>
 
 </project>

@@ -8,7 +8,7 @@ isSnapshot := true
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.10.6", "2.11.8")
+crossScalaVersions := Seq("2.10.6", "2.11.8", "2.12.8")
 
 resolvers += Resolver.mavenLocal
 
