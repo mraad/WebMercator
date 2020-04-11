@@ -39,7 +39,7 @@ public final class WebMercator
     }
 
     /**
-     * Convert horizontal distance in meters to longitude in decimal degress.
+     * Convert horizontal distance in meters to longitude in decimal degrees.
      *
      * @param x the horizontal distance in meters.
      * @return the longitude in decimal degrees.
@@ -50,7 +50,7 @@ public final class WebMercator
     }
 
     /**
-     * Convert horizontal distance in meters to longitude in decimal degress.
+     * Convert horizontal distance in meters to longitude in decimal degrees.
      *
      * @param x      the horizontal distance in meters.
      * @param linear if using continuous pan.
@@ -71,7 +71,7 @@ public final class WebMercator
     }
 
     /**
-     * Convert vertical distance in meters to latitude in decimal degress.
+     * Convert vertical distance in meters to latitude in decimal degrees.
      *
      * @param y the vertical distance in meters.
      * @return the latitude in decimal degrees.
