@@ -1,5 +1,9 @@
+.DS_Store
+src/.DS_Store
+project/.DS_Store
 *.iml
 .idea/
 target/
-project/target/
+project/project
+project/target
 *.sh
