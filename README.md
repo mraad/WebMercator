@@ -2,7 +2,8 @@
 
 Simple Java class to convert between geo and web mercator coordinates.
 
-_Update 2018 Feb_: Updated Maven pom to compile and build Scala implicits.  In addition, the output jar has the compact Scala version as a classifier.
+_Update 2018 Feb_: Updated Maven pom to compile and build Scala implicits. In addition, the output jar has the compact
+Scala version as a classifier.
 
 _Update 2017 Apr_: Added Scala Double implicits to enable the conversion to/from web mercator values. For example:
 
@@ -39,7 +40,7 @@ mvn -Pscala-2.11 clean install
 <dependency>
     <groupId>com.esri</groupId>
     <artifactId>webmercator</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
     <classifier>${scala.compact}</classifier>
 </dependency>
 ```

@@ -3,7 +3,10 @@ src/.DS_Store
 project/.DS_Store
 *.iml
 .idea/
+dist/
+build/
 target/
 project/project
 project/target
+src/main/python/webmercator.egg-info
 *.sh
