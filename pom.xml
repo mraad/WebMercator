@@ -145,7 +145,7 @@
             <properties>
                 <java.version>1.8</java.version>
                 <scala.compact>2.12</scala.compact>
-                <scala.version>${scala.compact}.8</scala.version>
+                <scala.version>${scala.compact}.10</scala.version>
             </properties>
         </profile>
     </profiles>
