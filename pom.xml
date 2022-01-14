@@ -4,7 +4,7 @@
 
     <groupId>com.esri</groupId>
     <artifactId>webmercator</artifactId>
-    <version>1.5</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
@@ -35,6 +35,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <webmercator.version>1.5</webmercator.version>
+        <revision>${webmercator.version}-${scala.compact}</revision>
     </properties>
 
     <dependencies>
@@ -98,12 +100,14 @@
                 <version>3.2.0</version>
                 <executions>
                     <execution>
+			<!--
                         <goals>
                             <goal>jar</goal>
                         </goals>
                         <configuration>
                             <classifier>${scala.compact}</classifier>
                         </configuration>
+			-->
                     </execution>
                 </executions>
             </plugin>
