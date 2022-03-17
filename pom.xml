@@ -35,7 +35,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <webmercator.version>1.5</webmercator.version>
+        <webmercator.version>1.6</webmercator.version>
         <revision>${webmercator.version}-${scala.compact}</revision>
     </properties>
 
@@ -59,7 +59,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.10.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -68,7 +68,7 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>4.5.4</version>
+                <version>4.5.6</version>
                 <executions>
                     <execution>
                         <id>scala-compile-first</id>
@@ -97,17 +97,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.2.2</version>
                 <executions>
                     <execution>
-			<!--
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>${scala.compact}</classifier>
-                        </configuration>
-			-->
+                        <!--
+                                    <goals>
+                                        <goal>jar</goal>
+                                    </goals>
+                                    <configuration>
+                                        <classifier>${scala.compact}</classifier>
+                                    </configuration>
+                        -->
                     </execution>
                 </executions>
             </plugin>
