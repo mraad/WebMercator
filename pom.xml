@@ -35,8 +35,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <webmercator.version>1.6</webmercator.version>
-        <revision>${webmercator.version}-${scala.compact}</revision>
+        <this.version>1.8</this.version>
+        <revision>${this.version}-${scala.compact}</revision>
     </properties>
 
     <dependencies>
@@ -122,6 +122,7 @@
     </distributionManagement>
 
     <profiles>
+        <!--
         <profile>
             <id>scala-2.10</id>
             <activation>
@@ -133,11 +134,9 @@
                 <scala.version>${scala.compact}.7</scala.version>
             </properties>
         </profile>
+        -->
         <profile>
             <id>scala-2.11</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <java.version>1.8</java.version>
                 <scala.compact>2.11</scala.compact>
@@ -146,10 +145,13 @@
         </profile>
         <profile>
             <id>scala-2.12</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <java.version>1.8</java.version>
                 <scala.compact>2.12</scala.compact>
-                <scala.version>${scala.compact}.10</scala.version>
+                <scala.version>${scala.compact}.15</scala.version>
             </properties>
         </profile>
     </profiles>
