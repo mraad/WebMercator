@@ -44,7 +44,7 @@ public final class WebMercator {
      * @return the longitude in decimal degrees.
      */
     public static double xToLongitude(final double x) {
-        return xToLongitude(x, true);
+        return x * DEGREES_PER_RADIANS / RADIUS;
     }
 
     /**
