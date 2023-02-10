@@ -35,7 +35,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <this.version>1.10</this.version>
+        <this.version>1.11</this.version>
         <revision>${this.version}-${scala.compact}</revision>
     </properties>
 
@@ -56,6 +56,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_${scala.compact}</artifactId>
+            <version>3.2.15</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -95,6 +101,12 @@
                     <scalaCompatVersion>${scala.compact}</scalaCompatVersion>
                     <scalaVersion>${scala.version}</scalaVersion>
                     <recompileMode>incremental</recompileMode>
+                    <args>
+                        <!-- <arg>-Yresolve-term-conflict:package</arg> -->
+                        <arg>-opt:l:inline</arg>
+                        <arg>-opt-inline-from:com.esri.**</arg>
+                        <arg>-opt-warnings</arg>
+                    </args>
                     <!--
                     <useZincServer>false</useZincServer>
                     -->
@@ -114,6 +126,24 @@
                                         <classifier>${scala.compact}</classifier>
                                     </configuration>
                         -->
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest-maven-plugin</artifactId>
+                <version>2.2.0</version>
+                <configuration>
+                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                    <junitxml>.</junitxml>
+                    <filereports>TestSuite.txt</filereports>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>test</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
