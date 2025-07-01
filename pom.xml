@@ -35,7 +35,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <this.version>1.11</this.version>
+        <this.version>1.12</this.version>
         <revision>${this.version}-${scala.compact}</revision>
     </properties>
 
@@ -187,7 +187,7 @@
             <properties>
                 <java.version>1.8</java.version>
                 <scala.compact>2.12</scala.compact>
-                <scala.version>${scala.compact}.15</scala.version>
+                <scala.version>${scala.compact}.18</scala.version>
             </properties>
         </profile>
         <profile>
