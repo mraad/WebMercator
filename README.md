@@ -44,9 +44,3 @@ mvn -Pscala-2.11 clean install
     <classifier>${scala.compact}</classifier>
 </dependency>
 ```
-
-## Build the project using [SBT](http://www.scala-sbt.org/)
-
-```shell
-sbt clean +publishM2 +publishLocal
-```
