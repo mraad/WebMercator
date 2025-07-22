@@ -22,8 +22,7 @@ public final class WebMercator {
      * @return the vertical distance in meters.
      */
     public static double latitudeToY(double latitude) {
-        final double rad = latitude * RADIANS_PER_DEGREES;
-        final double sin = FastMath.sin(rad);
+        final double sin = FastMath.sin(latitude * RADIANS_PER_DEGREES);
         return RADIUS_2 * FastMath.log((1.0 + sin) / (1.0 - sin));
     }
 
@@ -44,7 +43,7 @@ public final class WebMercator {
      * @return the longitude in decimal degrees.
      */
     public static double xToLongitude(final double x) {
-        return x * DEGREES_PER_RADIANS / RADIUS;
+        return x / RADIUS * DEGREES_PER_RADIANS;
     }
 
     /**

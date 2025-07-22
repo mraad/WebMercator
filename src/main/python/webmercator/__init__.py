@@ -9,5 +9,5 @@ class WebMercator(object):
 
     @staticmethod
     def lat_to_y(lat: float) -> float:
-        sin = math.sin(lat * math.pi / 180.0)
+        sin = math.sin(lat / 180.0 * math.pi)
         return 3189068.5 * math.log((1.0 + sin) / (1.0 - sin))

@@ -18,15 +18,17 @@ package object webmercator {
      */
     @inline implicit final def toMercatorX(): Double = {
       // WebMercator.longitudeToX(d)
-      d * 6378137.0 * FastMath.PI / 180.0
+      d * 6378137.0 / 180.0 * FastMath.PI
     }
 
     /**
      * @return the vertical mercator value in meters.
      */
     @inline implicit final def toMercatorY(): Double = {
-      val sin = FastMath.sin(d * FastMath.PI / 180.0)
+      val sin = FastMath.sin(d / 180.0 * FastMath.PI)
       3189068.5 * FastMath.log((1.0 + sin) / (1.0 - sin))
+      //       val sin = FastMath.sin(FastMath.toRadians(d))
+      //       3189068.5 * FastMath.log1p(2.0 * sin / (1.0 - sin))
     }
 
     /**
@@ -41,8 +43,10 @@ package object webmercator {
      * @return the latitude value from mercator y.
      */
     @inline implicit final def toLatitude(): Double = {
-      (FastMath.PI * 0.5 - 2.0 * FastMath.atan(FastMath.exp(d / -6378137.0))) * 180.0 / FastMath.PI
+      // (FastMath.PI * 0.5 - 2.0 * FastMath.atan(FastMath.exp(d / -6378137.0))) / FastMath.PI * 180.0
+      FastMath.toDegrees(2.0 * FastMath.atan(FastMath.exp(d / 6378137.0)) - FastMath.PI * 0.5)
     }
+
   }
 
 }
