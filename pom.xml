@@ -35,7 +35,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <this.version>1.13</this.version>
+        <this.version>1.14</this.version>
         <revision>${this.version}-${scala.compact}</revision>
     </properties>
 
@@ -44,12 +44,6 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-math3</artifactId>
-            <version>3.6.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -113,21 +107,10 @@
                 </configuration>
             </plugin>
             <plugin>
+                <!-- Pinned so the jar is reproducible across Maven versions. -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.4.2</version>
-                <executions>
-                    <execution>
-                        <!--
-                                    <goals>
-                                        <goal>jar</goal>
-                                    </goals>
-                                    <configuration>
-                                        <classifier>${scala.compact}</classifier>
-                                    </configuration>
-                        -->
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.scalatest</groupId>
