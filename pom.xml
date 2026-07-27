@@ -35,7 +35,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <this.version>1.13</this.version>
+        <this.version>1.14</this.version>
         <revision>${this.version}-${scala.compact}</revision>
     </properties>
 
@@ -105,6 +105,12 @@
                     <useZincServer>false</useZincServer>
                     -->
                 </configuration>
+            </plugin>
+            <plugin>
+                <!-- Pinned so the jar is reproducible across Maven versions. -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
             </plugin>
             <plugin>
                 <groupId>org.scalatest</groupId>

@@ -62,6 +62,6 @@ The Scala compact version is part of the artifact version:
 <dependency>
     <groupId>com.esri</groupId>
     <artifactId>webmercator</artifactId>
-    <version>1.13-${scala.compact}</version>
+    <version>1.14-${scala.compact}</version>
 </dependency>
 ```
