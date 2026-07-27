@@ -1,16 +1,15 @@
 package com.esri;
 
-import org.apache.commons.math3.util.FastMath;
-
 /**
- * Class to convert lat/lon values to WebMercator
+ * Class to convert lat/lon values to WebMercator.
+ * <p>
+ * This is the single source of truth for the math - the Scala implicits in
+ * {@code com.esri.webmercator} delegate here so both stay bit-identical.
  */
 public final class WebMercator {
-    public static final double ORIG_X = -20000000.0;
-    public static final double ORIG_Y = -20000000.0;
-    public static final double DEGREES_PER_RADIANS = 180.0 / FastMath.PI;
-    public static final double RADIANS_PER_DEGREES = FastMath.PI / 180.0;
-    public static final double PI_OVER_2 = FastMath.PI / 2.0;
+    public static final double DEGREES_PER_RADIANS = 180.0 / Math.PI;
+    public static final double RADIANS_PER_DEGREES = Math.PI / 180.0;
+    public static final double PI_OVER_2 = Math.PI / 2.0;
     public static final double RADIUS = 6378137.0;
     public static final double RADIUS_2 = RADIUS * 0.5;
     public static final double RAD_RAD = RADIANS_PER_DEGREES * RADIUS;
@@ -21,9 +20,9 @@ public final class WebMercator {
      * @param latitude the latitude in decimal degrees.
      * @return the vertical distance in meters.
      */
-    public static double latitudeToY(double latitude) {
-        final double sin = FastMath.sin(latitude * RADIANS_PER_DEGREES);
-        return RADIUS_2 * FastMath.log((1.0 + sin) / (1.0 - sin));
+    public static double latitudeToY(final double latitude) {
+        final double sin = Math.sin(latitude * RADIANS_PER_DEGREES);
+        return RADIUS_2 * Math.log((1.0 + sin) / (1.0 - sin));
     }
 
     /**
@@ -32,7 +31,7 @@ public final class WebMercator {
      * @param longitude the longitude in decimal degrees.
      * @return the horizontal distance in meters.
      */
-    public static double longitudeToX(double longitude) {
+    public static double longitudeToX(final double longitude) {
         return longitude * RAD_RAD;
     }
 
@@ -61,7 +60,7 @@ public final class WebMercator {
         if (linear) {
             return deg;
         }
-        final double rotations = FastMath.floor((deg + 180.0) / 360.0);
+        final double rotations = Math.floor((deg + 180.0) / 360.0);
         return deg - (rotations * 360.0);
     }
 
@@ -72,7 +71,7 @@ public final class WebMercator {
      * @return the latitude in decimal degrees.
      */
     public static double yToLatitude(final double y) {
-        final double rad = PI_OVER_2 - (2.0 * FastMath.atan(FastMath.exp(-1.0 * y / RADIUS)));
+        final double rad = PI_OVER_2 - (2.0 * Math.atan(Math.exp(-y / RADIUS)));
         return rad * DEGREES_PER_RADIANS;
     }
 }

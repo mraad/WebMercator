@@ -1,11 +1,19 @@
 # WebMercator
 
-Simple Java class to convert between geo and web mercator coordinates.
+Simple Java class to convert between geo and web mercator coordinates. No runtime dependencies - the Scala implicits and
+the Python module delegate to (or mirror) the same math as `com.esri.WebMercator`.
 
-_Update 2018 Feb_: Updated Maven pom to compile and build Scala implicits. In addition, the output jar has the compact
-Scala version as a classifier.
+## Java
 
-_Update 2017 Apr_: Added Scala Double implicits to enable the conversion to/from web mercator values. For example:
+```java
+double x = WebMercator.longitudeToX(-127.2);
+double y = WebMercator.latitudeToY(45.6);
+
+double lon = WebMercator.xToLongitude(x);
+double lat = WebMercator.yToLatitude(y);
+```
+
+## Scala
 
 ```scala
 import com.esri.webmercator._
@@ -20,27 +28,40 @@ val lon2 = mercatorX toLongitude
 val lat2 = mercatorY toLatitude
 ```
 
+## Python
+
+```python
+from webmercator import WebMercator
+
+x = WebMercator.lon_to_x(-127.2)
+y = WebMercator.lat_to_y(45.6)
+
+lon = WebMercator.x_to_lon(x)
+lat = WebMercator.y_to_lat(y)
+```
+
 ## Build the project using [Maven](https://maven.apache.org/)
 
-The following will install the Scala `2.10` version:
+The following will install the Scala `2.12` version:
 
 ```shell
 mvn clean install
 ```
 
-To install the Scala `2.11` version, specify the `scala-2.11` profile:
+To install the Scala `2.11` or `2.13` version, specify the matching profile:
 
 ```shell
-mvn -Pscala-2.11 clean install
+mvn -Pscala-2.13 clean install
 ```
 
 ## Usage in pom.xml
+
+The Scala compact version is part of the artifact version:
 
 ```xml
 <dependency>
     <groupId>com.esri</groupId>
     <artifactId>webmercator</artifactId>
-    <version>1.5</version>
-    <classifier>${scala.compact}</classifier>
+    <version>1.13-${scala.compact}</version>
 </dependency>
 ```

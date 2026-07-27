@@ -1,11 +1,12 @@
 package com.esri
 
-import org.apache.commons.math3.util.FastMath
-
 package object webmercator {
 
   /**
    * Double implicits.
+   *
+   * The math lives in [[com.esri.WebMercator]] - these are allocation-free
+   * (AnyVal) wrappers, so the Java and Scala APIs cannot drift apart.
    *
    * https://docs.scala-lang.org/overviews/core/value-classes.html
    *
@@ -16,36 +17,22 @@ package object webmercator {
     /**
      * @return the horizontal mercator value in meters.
      */
-    @inline implicit final def toMercatorX(): Double = {
-      // WebMercator.longitudeToX(d)
-      d * 6378137.0 / 180.0 * FastMath.PI
-    }
+    @inline final def toMercatorX(): Double = WebMercator.longitudeToX(d)
 
     /**
      * @return the vertical mercator value in meters.
      */
-    @inline implicit final def toMercatorY(): Double = {
-      val sin = FastMath.sin(d / 180.0 * FastMath.PI)
-      3189068.5 * FastMath.log((1.0 + sin) / (1.0 - sin))
-      //       val sin = FastMath.sin(FastMath.toRadians(d))
-      //       3189068.5 * FastMath.log1p(2.0 * sin / (1.0 - sin))
-    }
+    @inline final def toMercatorY(): Double = WebMercator.latitudeToY(d)
 
     /**
      * @return the longitude value from mercator x.
      */
-    @inline implicit final def toLongitude(): Double = {
-      // WebMercator.xToLongitude(d)
-      (d * 180.0) / (FastMath.PI * 6378137.0)
-    }
+    @inline final def toLongitude(): Double = WebMercator.xToLongitude(d)
 
     /**
      * @return the latitude value from mercator y.
      */
-    @inline implicit final def toLatitude(): Double = {
-      // (FastMath.PI * 0.5 - 2.0 * FastMath.atan(FastMath.exp(d / -6378137.0))) / FastMath.PI * 180.0
-      FastMath.toDegrees(2.0 * FastMath.atan(FastMath.exp(d / 6378137.0)) - FastMath.PI * 0.5)
-    }
+    @inline final def toLatitude(): Double = WebMercator.yToLatitude(d)
 
   }
 
