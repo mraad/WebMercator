@@ -51,6 +51,7 @@ mvn clean install
 To install the Scala `2.11` or `2.13` version, specify the matching profile:
 
 ```shell
+mvn -Pscala-2.11 clean install
 mvn -Pscala-2.13 clean install
 ```
 
