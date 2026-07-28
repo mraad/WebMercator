@@ -35,7 +35,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <this.version>1.14</this.version>
+        <this.version>1.15</this.version>
         <revision>${this.version}-${scala.compact}</revision>
     </properties>
 
@@ -55,7 +55,7 @@
         <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_${scala.compact}</artifactId>
-            <version>3.2.15</version>
+            <version>3.2.19</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -65,7 +65,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.0</version>
+                <version>3.14.1</version>
                 <configuration>
                     <!-- release, not source/target - javac warns that a bare -source 8
                          has no matching bootclasspath when running on a newer JDK. -->
@@ -75,7 +75,7 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>4.9.5</version>
+                <version>4.9.6</version>
                 <executions>
                     <execution>
                         <id>scala-compile-first</id>
@@ -166,7 +166,7 @@
             <properties>
                 <java.version>8</java.version>
                 <scala.compact>2.12</scala.compact>
-                <scala.version>${scala.compact}.18</scala.version>
+                <scala.version>${scala.compact}.21</scala.version>
             </properties>
         </profile>
         <profile>
