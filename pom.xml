@@ -67,8 +67,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.14.0</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <!-- release, not source/target - javac warns that a bare -source 8
+                         has no matching bootclasspath when running on a newer JDK. -->
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
             <plugin>
@@ -157,7 +158,7 @@
         <profile>
             <id>scala-2.11</id>
             <properties>
-                <java.version>1.8</java.version>
+                <java.version>8</java.version>
                 <scala.compact>2.11</scala.compact>
                 <scala.version>${scala.compact}.12</scala.version>
             </properties>
@@ -168,7 +169,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <java.version>1.8</java.version>
+                <java.version>8</java.version>
                 <scala.compact>2.12</scala.compact>
                 <scala.version>${scala.compact}.18</scala.version>
             </properties>

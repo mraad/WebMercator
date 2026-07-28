@@ -8,6 +8,10 @@ package object webmercator {
    * The math lives in [[com.esri.WebMercator]] - these are allocation-free
    * (AnyVal) wrappers, so the Java and Scala APIs cannot drift apart.
    *
+   * No @inline here: under mixed compilation scalac sees WebMercator as Java
+   * source rather than bytecode, so it cannot verify the call and skips it.
+   * The JIT inlines a one-line static delegate anyway.
+   *
    * https://docs.scala-lang.org/overviews/core/value-classes.html
    *
    * @param d the Double instance.
@@ -17,22 +21,22 @@ package object webmercator {
     /**
      * @return the horizontal mercator value in meters.
      */
-    @inline final def toMercatorX(): Double = WebMercator.longitudeToX(d)
+    final def toMercatorX(): Double = WebMercator.longitudeToX(d)
 
     /**
      * @return the vertical mercator value in meters.
      */
-    @inline final def toMercatorY(): Double = WebMercator.latitudeToY(d)
+    final def toMercatorY(): Double = WebMercator.latitudeToY(d)
 
     /**
      * @return the longitude value from mercator x.
      */
-    @inline final def toLongitude(): Double = WebMercator.xToLongitude(d)
+    final def toLongitude(): Double = WebMercator.xToLongitude(d)
 
     /**
      * @return the latitude value from mercator y.
      */
-    @inline final def toLatitude(): Double = WebMercator.yToLatitude(d)
+    final def toLatitude(): Double = WebMercator.yToLatitude(d)
 
   }
 
