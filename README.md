@@ -51,15 +51,17 @@ mvn clean install
 For any other Scala version, name the matching profile:
 
 ```shell
-mvn -P scala-2.10 clean install
 mvn -P scala-2.11 clean install
 mvn -P scala-2.13 clean install
 ```
 
-`scala-2.10` targets Java 7 and `scala-2.11`/`scala-2.12` target Java 8; **`scala-2.13`
-targets Java 17**, because that is the floor for the Spark 4.0 projects that consume it.
-Spark 4.0 is Scala 2.13 only, so a Spark 4.0 consumer needs the `scala-2.13` artifact —
-Maven Central carries none of these, so install locally first.
+`scala-2.11` and `scala-2.12` target Java 8; **`scala-2.13` targets Java 17**, because that
+is the floor for the Spark 4.0 projects that consume it. Spark 4.0 is Scala 2.13 only, so a
+Spark 4.0 consumer needs the `scala-2.13` artifact — Maven Central carries none of these, so
+install locally first.
+
+`scala-2.10` is commented out in `pom.xml` and has no command above. Naming a profile that
+does not exist is only a warning to Maven, which then quietly builds the 2.12 default.
 
 ## Usage in pom.xml
 
